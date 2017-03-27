@@ -9,7 +9,7 @@
 #---------------------------------#
 
 # version format
-version: 1.8.0.{build}
+version: 0.0.1.{build}
 
 # branches to build
 branches:
@@ -26,3 +26,9 @@ platform: Any CPU
 # to add several configurations to build matrix:
 configuration:
   - Release
+  
+
+# to run tests from different categories as separate jobs in parallel
+test:
+  categories:
+    - Unit
