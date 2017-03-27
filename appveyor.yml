@@ -20,6 +20,10 @@ branches:
 # Do not build on tags (GitHub only)
 skip_tags: true
 
+#---------------------------------#
+#       build configuration       #
+#---------------------------------#
+
 # build platform, i.e. x86, x64, Any CPU. This setting is optional.
 platform: Any CPU
 
@@ -27,6 +31,10 @@ platform: Any CPU
 configuration:
   - Release
   
+
+#---------------------------------#
+#       tests configuration       #
+#---------------------------------#
 
 # to run tests from different categories as separate jobs in parallel
 test:

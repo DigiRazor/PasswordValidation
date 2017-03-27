@@ -4,6 +4,9 @@ C# password validation service
 PasswordValidation is a lightweight password verification service for .Net.
 
 This service supports the use of build-in validators, to validate a new password's complexity according to the rules enabled.
+## Prerequisites
+
+* .NET 4.5 or later
 
 ## Features
 
