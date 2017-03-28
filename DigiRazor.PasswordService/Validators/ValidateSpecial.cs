@@ -5,18 +5,16 @@ namespace DigiRazor.PasswordValidation.Validators
     public class ValidateSpecial : IPasswordValidator
     {
         private Regex regex;
+
         private char[] charSet;
 
-        public ValidatorTypes Type
-        {
-            get { return ValidatorTypes.SpecialChar; }
-        }
+        public ValidatorTypes Type => ValidatorTypes.SpecialChar;
 
         public void Setup(PasswordRules ruleSet)
         {
             charSet = ruleSet.SpecialChars;
             var set = string.Concat(charSet);
-            regex = new Regex(string.Format("(.*[{0}])", set), RegexOptions.Compiled);
+            regex = new Regex($"(.*[{set}])", RegexOptions.Compiled);
         }
 
         public IPassword Validate(IPassword value)
@@ -37,12 +35,12 @@ namespace DigiRazor.PasswordValidation.Validators
 
         public override string ToString()
         {
-            return string.Format("Password must contain at least 1 of the following characters: {0}", string.Concat(charSet));
+            return $"Password must contain at least 1 of the following characters: {string.Concat(charSet)}";
         }
 
         public string ToString(PasswordRules ruleSet)
         {
-            return string.Format("Password must contain at least 1 of the following characters: {0}", string.Concat(ruleSet.SpecialChars));
+            return $"Password must contain at least 1 of the following characters: {string.Concat(ruleSet.SpecialChars)}";
         }
     }
 }

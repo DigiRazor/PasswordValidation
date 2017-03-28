@@ -2,14 +2,10 @@
 {
     public class ValidateConfirmPassword : IPasswordValidator
     {
-        public ValidatorTypes Type
-        {
-            get { return ValidatorTypes.ConfirmPassword; }
-        }
+        public ValidatorTypes Type => ValidatorTypes.ConfirmPassword;
 
         public void Setup(PasswordRules ruleSet)
         {
-            // Nothing to Setup
         }
 
         public IPassword Validate(IPassword value)

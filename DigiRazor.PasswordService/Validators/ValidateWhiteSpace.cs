@@ -11,14 +11,10 @@ namespace DigiRazor.PasswordValidation.Validators
             regex = new Regex("(.*[\\s])", RegexOptions.Compiled);
         }
 
-        public ValidatorTypes Type
-        {
-            get { return ValidatorTypes.WhiteSpace; }
-        }
+        public ValidatorTypes Type => ValidatorTypes.WhiteSpace;
 
         public void Setup(PasswordRules ruleSet)
         {
-
         }
 
         public IPassword Validate(IPassword value)
@@ -39,7 +35,7 @@ namespace DigiRazor.PasswordValidation.Validators
 
         public override string ToString()
         {
-            return string.Format("Password may not contain a space.");
+            return "Password may not contain a space.";
         }
 
         public string ToString(PasswordRules ruleSet)

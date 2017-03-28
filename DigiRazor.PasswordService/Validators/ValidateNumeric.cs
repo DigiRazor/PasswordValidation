@@ -11,14 +11,10 @@ namespace DigiRazor.PasswordValidation.Validators
             regex = new Regex("(.*[0-9])", RegexOptions.Compiled);
         }
 
-        public ValidatorTypes Type
-        {
-            get { return ValidatorTypes.Numeric; }
-        }
+        public ValidatorTypes Type => ValidatorTypes.Numeric;
 
         public void Setup(PasswordRules ruleSet)
         {
-
         }
 
         public IPassword Validate(IPassword value)
@@ -39,7 +35,7 @@ namespace DigiRazor.PasswordValidation.Validators
 
         public override string ToString()
         {
-            return string.Format("Password must contain at least 1 Numeric character.");
+            return "Password must contain at least 1 Numeric character.";
         }
 
         public string ToString(PasswordRules ruleSet)

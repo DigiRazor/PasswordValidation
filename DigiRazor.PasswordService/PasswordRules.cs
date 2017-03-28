@@ -94,7 +94,9 @@ namespace DigiRazor.PasswordValidation
                 "password",
                 "pa$$word",
                 "pa$$w0rd",
-                "p@ssword"
+                "p@ssword",
+                "password1*",
+                "pass@word1"
             };
 
             var result = new PasswordRules

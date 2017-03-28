@@ -3,12 +3,10 @@ namespace DigiRazor.PasswordValidation.Validators
     public class ValidateLength : IPasswordValidator
     {
         private short minLength;
+
         private short maxLength;
 
-        public ValidatorTypes Type
-        {
-            get { return ValidatorTypes.Length; }
-        }
+        public ValidatorTypes Type => ValidatorTypes.Length;
 
         public void Setup(PasswordRules ruleSet)
         {
@@ -43,12 +41,12 @@ namespace DigiRazor.PasswordValidation.Validators
 
         public override string ToString()
         {
-            return string.Format("Password must be at least {0} characters long.", minLength);
+            return $"Password must be at least {minLength} characters long.";
         }
 
         public string ToString(PasswordRules ruleSet)
         {
-            return string.Format("Password must be at least {0} characters long.", ruleSet.MinLength);
+            return $"Password must be at least {ruleSet.MinLength} characters long.";
         }
     }
 }

@@ -11,14 +11,10 @@ namespace DigiRazor.PasswordValidation.Validators
             regex = new Regex("(.*[A-Z])", RegexOptions.Compiled);
         }
 
-        public ValidatorTypes Type
-        {
-            get { return ValidatorTypes.Uppercase; }
-        }
+        public ValidatorTypes Type => ValidatorTypes.Uppercase;
 
         public void Setup(PasswordRules ruleSet)
         {
-
         }
 
         public IPassword Validate(IPassword value)

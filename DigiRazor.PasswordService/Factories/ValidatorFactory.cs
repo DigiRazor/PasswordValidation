@@ -1,16 +1,11 @@
 ﻿using System.Collections.Generic;
+
 using DigiRazor.PasswordValidation.Validators;
 
 namespace DigiRazor.PasswordValidation.Factories
 {
-    public interface IValidatorFactory
-    {
-        IEnumerable<IPasswordValidator> CreateValidationSet(PasswordRules ruleSet);
-    }
-
     public sealed class ValidatorFactory : IValidatorFactory
     {
-
         public IEnumerable<IPasswordValidator> CreateValidationSet(PasswordRules ruleSet)
         {
             var result = new List<IPasswordValidator>();
@@ -29,7 +24,7 @@ namespace DigiRazor.PasswordValidation.Factories
             return result;
         }
 
-        public readonly static IList<IPasswordValidator> InternalValidators = new List<IPasswordValidator>
+        public static readonly IList<IPasswordValidator> InternalValidators = new List<IPasswordValidator>
         {
             new ValidateConfirmPassword(),
             new ValidateUserId(),

@@ -6,10 +6,7 @@ namespace DigiRazor.PasswordValidation.Validators
     {
         private short histCount;
 
-        public ValidatorTypes Type
-        {
-            get { return ValidatorTypes.History; }
-        }
+        public ValidatorTypes Type => ValidatorTypes.History;
 
         public void Setup(PasswordRules ruleSet)
         {
@@ -41,12 +38,12 @@ namespace DigiRazor.PasswordValidation.Validators
 
         public override string ToString()
         {
-            return string.Format("Password may not be any of your previous {0} passwords.", histCount);
+            return $"Password may not be any of your previous {histCount} passwords.";
         }
 
         public string ToString(PasswordRules ruleSet)
         {
-            return string.Format("Password may not be any of your previous {0} passwords.", ruleSet.MinHistory);
+            return $"Password may not be any of your previous {ruleSet.MinHistory} passwords.";
         }
     }
 }

@@ -1,40 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using DigiRazor.PasswordValidation.Factories;
 
 namespace DigiRazor.PasswordValidation
 {
-    public interface IPasswordService
-    {
-        /// <summary>
-        /// Gets the current Rule Set
-        /// </summary>
-        PasswordRules RuleSet { get; }
-
-        /// <summary>
-        /// Validates the IPassword against the rule set
-        /// </summary>
-        /// <param name="password">IPassword to validate</param>
-        /// <returns></returns>
-        IPassword Validate(IPassword password);
-
-        /// <summary>
-        /// Adds a validator to the validation set
-        /// </summary>
-        /// <param name="validator"></param>
-        void AddCustomValidator(IPasswordValidator validator);
-
-        /// <summary>
-        /// Setup of the validation set according to the rules.
-        /// </summary>
-        /// <param name="ruleSet">The rule set to use for setup</param>
-        void SetupRules(PasswordRules ruleSet);
-    }
-
     public sealed class PasswordService : IPasswordService
     {
         private readonly IValidatorFactory validatorFactory;
+
+        private IList<IPasswordValidator> validationSet;
 
         public PasswordService()
             : this(new ValidatorFactory())
@@ -44,10 +20,9 @@ namespace DigiRazor.PasswordValidation
         public PasswordService(IValidatorFactory validatorFactory)
         {
             this.validatorFactory = validatorFactory;
+
             SetupRules(PasswordRules.CreateBasic());
         }
-
-        private IList<IPasswordValidator> validationSet;
 
         public PasswordRules RuleSet { get; private set; }
 
@@ -72,7 +47,7 @@ namespace DigiRazor.PasswordValidation
         {
             if (validator.Type != ValidatorTypes.Custom)
             {
-                throw new ArgumentException(@"AddCustomValidator Only supports custom validator's, for standard validator's use SetupRules", "validator");
+                throw new ArgumentException(@"AddCustomValidator Only supports custom validator's, for standard validator's use SetupRules", nameof(validator));
             }
             validationSet.Add(validator);
         }
@@ -82,8 +57,6 @@ namespace DigiRazor.PasswordValidation
             RuleSet = ruleSet;
 
             validationSet = validatorFactory.CreateValidationSet(ruleSet).ToList();
-
         }
-
     }
 }

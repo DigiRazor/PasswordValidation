@@ -11,14 +11,10 @@ namespace DigiRazor.PasswordValidation.Validators
             regex = new Regex("(.*[a-z])", RegexOptions.Compiled);
         }
 
-        public ValidatorTypes Type
-        {
-            get { return ValidatorTypes.Lowercase; }
-        }
+        public ValidatorTypes Type => ValidatorTypes.Lowercase;
 
         public void Setup(PasswordRules ruleSet)
         {
-
         }
 
         public IPassword Validate(IPassword value)
@@ -39,7 +35,7 @@ namespace DigiRazor.PasswordValidation.Validators
 
         public override string ToString()
         {
-            return string.Format("Password must contain at least 1 Lowercase character.");
+            return "Password must contain at least 1 Lowercase character.";
         }
 
         public string ToString(PasswordRules ruleSet)

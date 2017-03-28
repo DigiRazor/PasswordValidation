@@ -8,10 +8,7 @@ namespace DigiRazor.PasswordValidation.Validators
 
         private IList<string> blackList;
 
-        public ValidatorTypes Type
-        {
-            get { return ValidatorTypes.Blacklist; }
-        }
+        public ValidatorTypes Type => ValidatorTypes.Blacklist;
 
         public void Setup(PasswordRules ruleSet)
         {
@@ -38,7 +35,7 @@ namespace DigiRazor.PasswordValidation.Validators
 
         public override string ToString()
         {
-            return string.Format("Password contains black listed words.");
+            return "Password contains black listed words.";
         }
 
         public string ToString(PasswordRules ruleSet)

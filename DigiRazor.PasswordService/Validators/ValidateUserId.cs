@@ -2,14 +2,10 @@
 {
     public class ValidateUserId : IPasswordValidator
     {
-        public ValidatorTypes Type
-        {
-            get { return ValidatorTypes.UserId; }
-        }
+        public ValidatorTypes Type => ValidatorTypes.UserId;
 
         public void Setup(PasswordRules ruleSet)
         {
-
         }
 
         public IPassword Validate(IPassword value)
@@ -29,7 +25,7 @@
 
         public override string ToString()
         {
-            return string.Format("Password may not contain the UserId/ User name.");
+            return "Password may not contain the UserId/ User name.";
         }
 
         public string ToString(PasswordRules ruleSet)
