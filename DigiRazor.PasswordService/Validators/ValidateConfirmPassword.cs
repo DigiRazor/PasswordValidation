@@ -26,7 +26,7 @@
 
         public override string ToString()
         {
-            return string.Format("New Password & Confirm Password must match.");
+            return "New Password & Confirm Password must match.";
         }
 
         public string ToString(PasswordRules ruleSet)
