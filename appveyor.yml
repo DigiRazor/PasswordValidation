@@ -60,7 +60,7 @@ after_test:
 artifacts:
   - path: DigiRazor.PasswordService\bin\Release\PasswordValidation.dll
     name: PasswordValidation.dll
-  - path: '**\*.nupkg'
+  - path: '**\DigiRazor.PasswordValidation*.nupkg'
 
 #uncomment to publish to NuGet
 #deploy:
