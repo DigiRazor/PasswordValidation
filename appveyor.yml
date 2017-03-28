@@ -20,6 +20,12 @@ branches:
 # Do not build on tags (GitHub only)
 skip_tags: true
 
+# Skipping commits affecting specific files (GitHub only). More details here: /docs/appveyor-yml
+skip_commits:
+  files:
+    - docs/*
+    - '**/*.md'
+
 #---------------------------------#
 #       build configuration       #
 #---------------------------------#
