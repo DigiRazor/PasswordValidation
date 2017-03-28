@@ -31,3 +31,76 @@ This service supports the use of built-in validators, to validate the new passwo
 **Historical passwords:** Basic check to compare the provided password against previous passwords used by the user.
 
 **Black-list:** Basic check to disallow the supplied list of words as possible passwords.
+
+## Usage
+
+This is a quick introduction (PasswordValidation, world; world, PasswordValidation):
+
+Basic example
+```cs
+using System;
+using System.Collections.Generic;
+using DigiRazor.PasswordValidation;
+using DigiRazor.PasswordValidation.Factories;
+using DigiRazor.PasswordValidation.Model;
+
+namespace Sample
+{
+    static class Program
+    {
+        private static IPassword userPassword;
+
+        private static IValidatorFactory validatorFactory;
+        private static IPasswordService service;
+
+        static void Main()
+        {
+			// Setup the ruleset
+            var passwordRules = new PasswordRules
+            {
+                Validators = ValidatorTypes.Standard,
+                MinLength = 8,
+                MaxLength = 10,
+                SpecialChars = new[] { '!', '@', '#', '$', '%', '*', '+', '/' },
+                MinHistory = 3,
+                BlackList = new[] { "test", "password" }
+            };
+            Console.WriteLine("Rules Configured:");
+            Console.WriteLine();
+            Console.WriteLine(passwordRules);
+            Console.WriteLine();
+
+            userPassword = new Password
+            {
+                UserId = "ABHW089",
+                OldPassword = "B1ge@rs*",
+                NewPassword = "yVHn6?R@",
+                ConfirmPassword = "yVHn6?R@",
+                History = new List<string> { "$sG96r#X", "3g9m&9W7" },
+                NewPasswordHash = "yVHn6?R@",
+
+                IsValid = true
+            };
+			
+            validatorFactory = new ValidatorFactory();
+            service = new PasswordService(validatorFactory);
+
+            service.SetupRules(passwordRules);
+
+            var result = service.Validate(userPassword);
+
+            if (result.IsValid == false)
+            {
+                Console.WriteLine(result.Reason);
+            }
+            else
+            {
+                Console.WriteLine("Success!");
+            }
+
+            Console.ReadKey();
+        }
+    }
+}
+
+```
