@@ -89,7 +89,7 @@ namespace DigiRazor.PasswordValidation
 
         Basic = ConfirmPassword | WhiteSpace,
 
-        Standard = ConfirmPassword | Length | Uppercase | Lowercase | Numeric | SpecialChar | WhiteSpace | History | Blacklist,
+        Standard = ConfirmPassword | Length | Uppercase | Lowercase | Numeric | SpecialChar | WhiteSpace | History,
 
         All =
             ConfirmPassword | UserId | Length | Uppercase | Lowercase | Numeric | SpecialChar | WhiteSpace | History |
