@@ -36,11 +36,5 @@ namespace DigiRazor.PasswordValidation.Validators
         {
             return "Password contains black listed words.";
         }
-
-        public string ToString(PasswordRules ruleSet)
-        {
-            return ToString();
-        }
-
     }
 }

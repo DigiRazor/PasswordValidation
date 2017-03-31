@@ -23,10 +23,5 @@
         {
             return "Password may not contain the UserId/ User name.";
         }
-
-        public string ToString(PasswordRules ruleSet)
-        {
-            return ToString();
-        }
     }
 }

@@ -33,10 +33,5 @@ namespace DigiRazor.PasswordValidation.Validators
         {
             return "Password must contain at least 1 Numeric character.";
         }
-
-        public string ToString(PasswordRules ruleSet)
-        {
-            return ToString();
-        }
     }
 }

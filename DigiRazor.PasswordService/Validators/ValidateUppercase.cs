@@ -31,12 +31,7 @@ namespace DigiRazor.PasswordValidation.Validators
 
         public override string ToString()
         {
-            return string.Format("Password must contain at least 1 Uppercase character.");
-        }
-
-        public string ToString(PasswordRules ruleSet)
-        {
-            return ToString();
+            return "Password must contain at least 1 Uppercase character.";
         }
     }
 }

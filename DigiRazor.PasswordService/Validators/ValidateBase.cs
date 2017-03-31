@@ -5,5 +5,10 @@
         public virtual void Setup(PasswordRules ruleSet)
         {
         }
+
+        public virtual string ToString(PasswordRules ruleSet)
+        {
+            return ToString();
+        }
     }
 }

@@ -41,7 +41,7 @@ namespace DigiRazor.PasswordValidation.Validators
             return $"Password may not be any of your previous {histCount} passwords.";
         }
 
-        public string ToString(PasswordRules ruleSet)
+        public override string ToString(PasswordRules ruleSet)
         {
             return $"Password may not be any of your previous {ruleSet.MinHistory} passwords.";
         }

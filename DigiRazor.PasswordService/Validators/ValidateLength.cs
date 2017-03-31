@@ -44,7 +44,7 @@ namespace DigiRazor.PasswordValidation.Validators
             return $"Password must be at least {minLength} characters long.";
         }
 
-        public string ToString(PasswordRules ruleSet)
+        public override string ToString(PasswordRules ruleSet)
         {
             return $"Password must be at least {ruleSet.MinLength} characters long.";
         }

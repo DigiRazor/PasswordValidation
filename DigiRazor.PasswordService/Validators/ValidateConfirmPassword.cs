@@ -24,10 +24,5 @@
         {
             return "New Password & Confirm Password must match.";
         }
-
-        public string ToString(PasswordRules ruleSet)
-        {
-            return ToString();
-        }
     }
 }

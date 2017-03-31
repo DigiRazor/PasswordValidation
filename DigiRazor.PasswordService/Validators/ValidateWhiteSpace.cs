@@ -33,10 +33,5 @@ namespace DigiRazor.PasswordValidation.Validators
         {
             return "Password may not contain a space.";
         }
-
-        public string ToString(PasswordRules ruleSet)
-        {
-            return ToString();
-        }
     }
 }
