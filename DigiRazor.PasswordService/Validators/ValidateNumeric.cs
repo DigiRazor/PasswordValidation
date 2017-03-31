@@ -2,7 +2,7 @@ using System.Text.RegularExpressions;
 
 namespace DigiRazor.PasswordValidation.Validators
 {
-    public class ValidateNumeric : IPasswordValidator
+    public sealed class ValidateNumeric : ValidateBase, IPasswordValidator
     {
         private readonly Regex regex;
 
@@ -12,10 +12,6 @@ namespace DigiRazor.PasswordValidation.Validators
         }
 
         public ValidatorTypes Type => ValidatorTypes.Numeric;
-
-        public void Setup(PasswordRules ruleSet)
-        {
-        }
 
         public IPassword Validate(IPassword value)
         {

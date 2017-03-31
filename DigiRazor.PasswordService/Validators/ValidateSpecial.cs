@@ -2,7 +2,7 @@
 
 namespace DigiRazor.PasswordValidation.Validators
 {
-    public class ValidateSpecial : IPasswordValidator
+    public sealed class ValidateSpecial : ValidateBase, IPasswordValidator
     {
         private Regex regex;
 
@@ -10,7 +10,7 @@ namespace DigiRazor.PasswordValidation.Validators
 
         public ValidatorTypes Type => ValidatorTypes.SpecialChar;
 
-        public void Setup(PasswordRules ruleSet)
+        public override void Setup(PasswordRules ruleSet)
         {
             charSet = ruleSet.SpecialChars;
             var set = string.Concat(charSet);

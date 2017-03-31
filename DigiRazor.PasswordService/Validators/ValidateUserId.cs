@@ -1,12 +1,8 @@
 ﻿namespace DigiRazor.PasswordValidation.Validators
 {
-    public class ValidateUserId : IPasswordValidator
+    public sealed class ValidateUserId : ValidateBase, IPasswordValidator
     {
         public ValidatorTypes Type => ValidatorTypes.UserId;
-
-        public void Setup(PasswordRules ruleSet)
-        {
-        }
 
         public IPassword Validate(IPassword value)
         {

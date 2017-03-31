@@ -3,14 +3,13 @@ using System.Linq;
 
 namespace DigiRazor.PasswordValidation.Validators
 {
-    public class ValidateBlacklist : IPasswordValidator
+    public sealed class ValidateBlacklist : ValidateBase, IPasswordValidator
     {
-
         private IList<string> blackList;
 
         public ValidatorTypes Type => ValidatorTypes.Blacklist;
 
-        public void Setup(PasswordRules ruleSet)
+        public override void Setup(PasswordRules ruleSet)
         {
             blackList = ruleSet.BlackList.ToList();
         }

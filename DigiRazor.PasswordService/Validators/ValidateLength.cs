@@ -1,6 +1,6 @@
 namespace DigiRazor.PasswordValidation.Validators
 {
-    public class ValidateLength : IPasswordValidator
+    public sealed class ValidateLength : ValidateBase, IPasswordValidator
     {
         private short minLength;
 
@@ -8,7 +8,7 @@ namespace DigiRazor.PasswordValidation.Validators
 
         public ValidatorTypes Type => ValidatorTypes.Length;
 
-        public void Setup(PasswordRules ruleSet)
+        public override void Setup(PasswordRules ruleSet)
         {
             minLength = ruleSet.MinLength;
             maxLength = ruleSet.MaxLength;

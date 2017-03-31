@@ -2,7 +2,7 @@
 
 namespace DigiRazor.PasswordValidation.Validators
 {
-    public class ValidateWhiteSpace : IPasswordValidator
+    public sealed class ValidateWhiteSpace : ValidateBase, IPasswordValidator
     {
         private readonly Regex regex;
 
@@ -12,10 +12,6 @@ namespace DigiRazor.PasswordValidation.Validators
         }
 
         public ValidatorTypes Type => ValidatorTypes.WhiteSpace;
-
-        public void Setup(PasswordRules ruleSet)
-        {
-        }
 
         public IPassword Validate(IPassword value)
         {

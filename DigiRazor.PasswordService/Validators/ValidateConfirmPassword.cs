@@ -1,12 +1,8 @@
 ﻿namespace DigiRazor.PasswordValidation.Validators
 {
-    public class ValidateConfirmPassword : IPasswordValidator
+    public sealed class ValidateConfirmPassword : ValidateBase, IPasswordValidator
     {
         public ValidatorTypes Type => ValidatorTypes.ConfirmPassword;
-
-        public void Setup(PasswordRules ruleSet)
-        {
-        }
 
         public IPassword Validate(IPassword value)
         {

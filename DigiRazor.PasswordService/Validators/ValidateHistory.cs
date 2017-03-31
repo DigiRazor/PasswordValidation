@@ -2,13 +2,13 @@
 
 namespace DigiRazor.PasswordValidation.Validators
 {
-    public class ValidateHistory : IPasswordValidator
+    public sealed class ValidateHistory : ValidateBase, IPasswordValidator
     {
         private short histCount;
 
         public ValidatorTypes Type => ValidatorTypes.History;
 
-        public void Setup(PasswordRules ruleSet)
+        public override void Setup(PasswordRules ruleSet)
         {
             histCount = ruleSet.MinHistory;
         }

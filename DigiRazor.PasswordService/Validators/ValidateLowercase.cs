@@ -2,7 +2,7 @@
 
 namespace DigiRazor.PasswordValidation.Validators
 {
-    public class ValidateLowercase : IPasswordValidator
+    public sealed class ValidateLowercase : ValidateBase, IPasswordValidator
     {
         private readonly Regex regex;
 
@@ -12,10 +12,6 @@ namespace DigiRazor.PasswordValidation.Validators
         }
 
         public ValidatorTypes Type => ValidatorTypes.Lowercase;
-
-        public void Setup(PasswordRules ruleSet)
-        {
-        }
 
         public IPassword Validate(IPassword value)
         {
