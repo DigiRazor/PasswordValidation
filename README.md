@@ -55,7 +55,7 @@ namespace Sample
 
         static void Main()
         {
-			// Setup the ruleset
+	    // Setup the ruleset
             var passwordRules = new PasswordRules
             {
                 Validators = ValidatorTypes.Standard,
