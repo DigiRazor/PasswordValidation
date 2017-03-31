@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+	<configSections>
+		<section name="passwordrulesconfiguration" type="DigiRazor.PasswordValidation.Configuration.RuleConfig, DigiRazor.PasswordValidation.Configuration" xdt:Transform="Remove" xdt:Locator="Match(name)"/>
+	</configSections>
+	<configSections xdt:Locator="Condition(count(*) = 0)" xdt:Transform="Remove" />
+	
+	<passwordrulesconfiguration xdt:Transform="Remove">
+		<validators types="standard" />
+		
+		<lenghts min="6" max="10" />
+		<specialchars value="!@#$%*+/" />
+		<mincounts history="" />
+		
+	</passwordrulesconfiguration>
+	
+</configuration>

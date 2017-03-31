@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+	<configSections xdt:Transform="InsertIfMissing">
+		<section name="passwordrulesconfiguration" type="DigiRazor.PasswordValidation.Configuration.RuleConfig, DigiRazor.PasswordValidation.Configuration" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)"/>
+	</configSections>
+	
+	<passwordrulesconfiguration xdt:Transform="InsertIfMissing">
+		<validators types="standard" />
+		
+		<lenghts min="6" max="10" />
+		<specialchars value="!@#$%*+/" />
+		<mincounts history="" />
+		
+	</passwordrulesconfiguration>
+    
+</configuration>
