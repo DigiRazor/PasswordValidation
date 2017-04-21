@@ -1,8 +1,10 @@
 ﻿using System.Configuration;
+using System.Diagnostics.CodeAnalysis;
 
 namespace DigiRazor.PasswordValidation.Configuration.Elements
 {
-    public sealed class LenghtsElement : ConfigurationElement
+    [ExcludeFromCodeCoverage]
+    public sealed class LenghtsElement : ConfigurationElement, ILenghtsElement
     {
         [ConfigurationProperty("min", IsRequired = true)]
         public short Min

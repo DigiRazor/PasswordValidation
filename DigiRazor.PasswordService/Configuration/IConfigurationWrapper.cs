@@ -4,6 +4,6 @@ namespace DigiRazor.PasswordValidation.Configuration
 {
     public interface IConfigurationWrapper
     {
-        PasswordRulesSection GetPasswordRulesSection();
+        IPasswordRulesSection GetPasswordRulesSection();
     }
 }

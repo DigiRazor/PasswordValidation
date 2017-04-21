@@ -5,12 +5,7 @@ namespace DigiRazor.PasswordValidation.Factories
 {
     public sealed class PasswordRulesFactory : IPasswordRulesFactory
     {
-        private IConfigurationWrapper configuration;
-
-        public PasswordRulesFactory()
-        {
-            configuration = new ConfigurationWrapper();
-        }
+        private readonly IConfigurationWrapper configuration;
 
         public PasswordRulesFactory(IConfigurationWrapper configuration)
         {
@@ -24,9 +19,9 @@ namespace DigiRazor.PasswordValidation.Factories
             var passwordRules = new PasswordRules
             {
                 Validators = ValidatorTypes.None,
-                MinLength = config.Lengths?.Min ?? (short)0,
-                MaxLength = config.Lengths?.Max ?? (short)0,
-                MinHistory = config.MinCounts?.History ?? (short)0,
+                MinLength = config.Lengths?.Min ?? 0,
+                MaxLength = config.Lengths?.Max ?? 0,
+                MinHistory = config.MinCounts?.History ?? 0,
                 SpecialChars = config.SpecialChars?.Value.ToCharArray() ?? new char[0]
             };
 

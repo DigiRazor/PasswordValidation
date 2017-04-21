@@ -6,11 +6,11 @@
 	<configSections xdt:Locator="Condition(count(*) = 0)" xdt:Transform="Remove" />
 	
 	<passwordrules xdt:Transform="Remove">
-		<validators types="standard" />
+		<validators types="Standard" />
 		
 		<lenghts min="6" max="10" />
 		<specialchars value="!@#$%*+/" />
-		<mincounts history="" />
+		<mincounts history="3" />
 		
 	</passwordrules>
 	

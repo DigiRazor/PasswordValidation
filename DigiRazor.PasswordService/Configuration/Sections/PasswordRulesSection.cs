@@ -1,20 +1,22 @@
 ﻿using System.Configuration;
+using System.Diagnostics.CodeAnalysis;
 using DigiRazor.PasswordValidation.Configuration.Elements;
 
 namespace DigiRazor.PasswordValidation.Configuration.Sections
 {
-    public class PasswordRulesSection : ConfigurationSection
+    [ExcludeFromCodeCoverage]
+    public class PasswordRulesSection : ConfigurationSection, IPasswordRulesSection
     {
         [ConfigurationProperty("validators", IsRequired = true)]
-        public ValidatorsElement Validators => (ValidatorsElement) base["validators"];
+        public IValidatorsElement Validators => (ValidatorsElement) base["validators"];
 
         [ConfigurationProperty("lenghts")]
-        public LenghtsElement Lengths => (LenghtsElement)base["lenghts"];
+        public ILenghtsElement Lengths => (LenghtsElement)base["lenghts"];
 
         [ConfigurationProperty("specialchars")]
-        public SpecialCharsElement SpecialChars => (SpecialCharsElement)base["specialchars"];
+        public ISpecialCharsElement SpecialChars => (SpecialCharsElement)base["specialchars"];
 
         [ConfigurationProperty("mincounts")]
-        public MinCountsElement MinCounts => (MinCountsElement)base["mincounts"];
+        public IMinCountsElement MinCounts => (MinCountsElement)base["mincounts"];
     }
 }

@@ -36,25 +36,7 @@ namespace DigiRazor.PasswordValidation
         /// </summary>
         /// <see cref="Validators"/>
         public short MinHistory { get; set; }
-
-        /// <summary>
-        /// Max allowed repeating charters.
-        /// </summary>
-        /// <see cref="Validators"/>
-        public short MaxRepeatingChars { get; set; }
-
-        /// <summary>
-        /// Max allowed keyboard sequence
-        /// </summary>
-        /// <see cref="Validators"/>
-        public short MaxKeyboardSeq { get; set; }
-
-        /// <summary>
-        /// Max allowed character sequence
-        /// </summary>
-        /// <see cref="Validators"/>
-        public short MaxCharacterSeq { get; set; }
-
+        
         /// <summary>
         /// Blacklist of words not allowed
         /// </summary>

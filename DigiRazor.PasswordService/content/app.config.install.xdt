@@ -5,11 +5,11 @@
 	</configSections>
 	
 	<passwordrules xdt:Transform="InsertIfMissing">
-		<validators types="standard" />
+		<validators types="Standard" />
 		
 		<lenghts min="6" max="10" />
 		<specialchars value="!@#$%*+/" />
-		<mincounts history="" />
+		<mincounts history="3" />
 		
 	</passwordrules>
     

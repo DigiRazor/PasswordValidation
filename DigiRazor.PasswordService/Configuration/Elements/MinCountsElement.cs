@@ -1,8 +1,10 @@
 ﻿using System.Configuration;
+using System.Diagnostics.CodeAnalysis;
 
 namespace DigiRazor.PasswordValidation.Configuration.Elements
 {
-    public sealed class MinCountsElement : ConfigurationElement
+    [ExcludeFromCodeCoverage]
+    public sealed class MinCountsElement : ConfigurationElement, IMinCountsElement
     {
         [ConfigurationProperty("history", IsRequired = true)]
         public short History
