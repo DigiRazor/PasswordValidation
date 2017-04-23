@@ -51,6 +51,10 @@ namespace DigiRazor.PasswordValidation
             return result;
         }
 
+        /// <summary>
+        /// Add custom validator
+        /// </summary>
+        /// <param name="validator">Custom Validator to add</param>
         public void AddCustomValidator(IPasswordValidator validator)
         {
             if (validator.Type != ValidatorTypes.Custom)
