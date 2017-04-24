@@ -76,11 +76,12 @@ namespace Sample
                 OldPassword = "B1ge@rs*",
                 NewPassword = "yVHn6?R@",
                 ConfirmPassword = "yVHn6?R@",
-                History = new List<string> { "$sG96r#X", "3g9m&9W7" },
                 NewPasswordHash = "yVHn6?R@",
 
                 IsValid = true
             };
+			
+			userPassword.SetHistory(new List<string> { "$sG96r#X", "3g9m&9W7" });
 			
             validatorFactory = new ValidatorFactory();
             service = new PasswordService(validatorFactory);
