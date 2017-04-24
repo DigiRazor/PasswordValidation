@@ -1,11 +1,11 @@
 using DigiRazor.PasswordValidation.Configuration.Elements;
 
-namespace DigiRazor.PasswordValidation.Configuration.Sections
+namespace DigiRazor.PasswordValidation.Configuration
 {
     public interface IPasswordRulesSection
     {
         IValidatorsElement Validators { get; }
-        ILenghtsElement Lengths { get; }
+        ILengthsElement Lengths { get; }
         ISpecialCharsElement SpecialChars { get; }
         IMinCountsElement MinCounts { get; }
     }

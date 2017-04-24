@@ -1,6 +1,5 @@
 ﻿using System.Configuration;
 using System.Diagnostics.CodeAnalysis;
-using DigiRazor.PasswordValidation.Configuration.Sections;
 
 namespace DigiRazor.PasswordValidation.Configuration
 {

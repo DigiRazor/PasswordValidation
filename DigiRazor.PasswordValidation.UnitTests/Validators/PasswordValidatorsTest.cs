@@ -28,7 +28,7 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
                 MaxLength = 10,
                 SpecialChars = new[] { '!', '@', '#', '$', '%', '*', '+', '/' },
                 MinHistory = 3,
-                BlackList = new[] { "test", "password" }
+                Blacklist = new[] { "test", "password" }
             };
             validTestPassword = new Password
             {
@@ -36,11 +36,13 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
                 OldPassword = "B1ge@rs*",
                 NewPassword = "yVHn6?R@",
                 ConfirmPassword = "yVHn6?R@",
-                History = new List<string> { "$sG96r#X", "3g9m&9W7" },
                 NewPasswordHash = "yVHn6?R@",
 
                 IsValid = true
             };
+
+            validTestPassword.SetHistory(new List<string> { "$sG96r#X", "3g9m&9W7" });
+
         }
 
         
@@ -71,11 +73,12 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
                 OldPassword = "B1ge@rs*",
                 NewPassword = "yVHn6?R@",
                 ConfirmPassword = "yVHn6?R2",
-                History = new List<string> { "$sG96r#X", "3g9m&9W7" },
                 NewPasswordHash = "yVHn6?R@",
 
                 IsValid = false
             };
+
+            testPassword.SetHistory(new List<string> { "$sG96r#X", "3g9m&9W7" });
 
             validator = new ValidateConfirmPassword();
             validator.Setup(validTestRules);
@@ -98,11 +101,12 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
                 OldPassword = "B1ge@rs*",
                 NewPassword = "yVHn6?R@",
                 ConfirmPassword = "yVHn6?R2",
-                History = new List<string> { "$sG96r#X", "3g9m&9W7" },
                 NewPasswordHash = "yVHn6?R@",
 
                 IsValid = true
             };
+
+            testPassword.SetHistory(new List<string> { "$sG96r#X", "3g9m&9W7" });
 
             validator = new ValidateConfirmPassword();
             validator.Setup(validTestRules);
@@ -141,11 +145,12 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
                 OldPassword = "B1ge@rs*",
                 NewPassword = "yVHn6",
                 ConfirmPassword = "yVHn6",
-                History = new List<string> { "$sG96r#X", "3g9m&9W7" },
                 NewPasswordHash = "yVHn6",
 
                 IsValid = false
             };
+
+            testPassword.SetHistory(new List<string> { "$sG96r#X", "3g9m&9W7" });
 
             validator = new ValidateLength();
             validator.Setup(validTestRules);
@@ -169,11 +174,12 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
                 OldPassword = "B1ge@rs*",
                 NewPassword = "yVHn6",
                 ConfirmPassword = "yVHn6",
-                History = new List<string> { "$sG96r#X", "3g9m&9W7" },
                 NewPasswordHash = "yVHn6",
 
                 IsValid = true
             };
+
+            testPassword.SetHistory(new List<string> { "$sG96r#X", "3g9m&9W7" });
 
             validator = new ValidateLength();
             validator.Setup(validTestRules);
@@ -196,11 +202,12 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
                 OldPassword = "B1ge@rs*",
                 NewPassword = "yVHn67890123",
                 ConfirmPassword = "yVHn67890123",
-                History = new List<string> { "$sG96r#X", "3g9m&9W7" },
                 NewPasswordHash = "yVHn67890123",
 
                 IsValid = true
             };
+
+            testPassword.SetHistory(new List<string> { "$sG96r#X", "3g9m&9W7" });
 
             validator = new ValidateLength();
             validator.Setup(validTestRules);
@@ -239,11 +246,12 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
                 OldPassword = "B1ge@rs*",
                 NewPassword = "ABHW089*",
                 ConfirmPassword = "ABHW089*",
-                History = new List<string> { "$sG96r#X", "3g9m&9W7" },
                 NewPasswordHash = "ABHW089*",
 
                 IsValid = false
             };
+
+            testPassword.SetHistory(new List<string> { "$sG96r#X", "3g9m&9W7" });
 
             validator = new ValidateUserId();
             validator.Setup(validTestRules);
@@ -267,11 +275,12 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
                 OldPassword = "B1ge@rs*",
                 NewPassword = "ABHW089*",
                 ConfirmPassword = "ABHW089*",
-                History = new List<string> { "$sG96r#X", "3g9m&9W7" },
                 NewPasswordHash = "ABHW089*",
 
                 IsValid = true
             };
+
+            testPassword.SetHistory(new List<string> { "$sG96r#X", "3g9m&9W7" });
 
             validator = new ValidateUserId();
             validator.Setup(validTestRules);
@@ -310,11 +319,12 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
                 OldPassword = "B1ge@rs*",
                 NewPassword = "yvhn6?r@",
                 ConfirmPassword = "yvhn6?r@",
-                History = new List<string> { "$sG96r#X", "3g9m&9W7" },
                 NewPasswordHash = "yvhn6?r@",
 
                 IsValid = false
             };
+
+            testPassword.SetHistory(new List<string> { "$sG96r#X", "3g9m&9W7" });
 
             validator = new ValidateUppercase();
             validator.Setup(validTestRules);
@@ -337,11 +347,12 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
                 OldPassword = "B1ge@rs*",
                 NewPassword = "yvhn6?r@",
                 ConfirmPassword = "yvhn6?r@",
-                History = new List<string> { "$sG96r#X", "3g9m&9W7" },
                 NewPasswordHash = "yvhn6?r@",
 
                 IsValid = true
             };
+
+            testPassword.SetHistory(new List<string> { "$sG96r#X", "3g9m&9W7" });
 
             validator = new ValidateUppercase();
             validator.Setup(validTestRules);
@@ -380,11 +391,12 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
                 OldPassword = "B1ge@rs*",
                 NewPassword = "YVHN6?R@",
                 ConfirmPassword = "YVHN6?R@",
-                History = new List<string> { "$sG96r#X", "3g9m&9W7" },
                 NewPasswordHash = "YVHN6?R@",
 
                 IsValid = false
             };
+
+            testPassword.SetHistory(new List<string> { "$sG96r#X", "3g9m&9W7" });
 
             validator = new ValidateLowercase();
             validator.Setup(validTestRules);
@@ -408,11 +420,12 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
                 OldPassword = "B1ge@rs*",
                 NewPassword = "YVHN6?R@",
                 ConfirmPassword = "YVHN6?R@",
-                History = new List<string> { "$sG96r#X", "3g9m&9W7" },
                 NewPasswordHash = "YVHN6?R@",
 
                 IsValid = true
             };
+
+            testPassword.SetHistory(new List<string> { "$sG96r#X", "3g9m&9W7" });
 
             validator = new ValidateLowercase();
             validator.Setup(validTestRules);
@@ -451,11 +464,12 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
                 OldPassword = "B1ge@rs*",
                 NewPassword = "yVHnf?R@",
                 ConfirmPassword = "yVHnf?R@",
-                History = new List<string> { "$sG96r#X", "3g9m&9W7" },
                 NewPasswordHash = "yVHnf?R@",
 
                 IsValid = false
             };
+
+            testPassword.SetHistory(new List<string> { "$sG96r#X", "3g9m&9W7" });
 
             validator = new ValidateNumeric();
             validator.Setup(validTestRules);
@@ -479,11 +493,12 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
                 OldPassword = "B1ge@rs*",
                 NewPassword = "yVHnf?R@",
                 ConfirmPassword = "yVHnf?R@",
-                History = new List<string> { "$sG96r#X", "3g9m&9W7" },
                 NewPasswordHash = "yVHnf?R@",
 
                 IsValid = true
             };
+
+            testPassword.SetHistory(new List<string> { "$sG96r#X", "3g9m&9W7" });
 
             validator = new ValidateNumeric();
             validator.Setup(validTestRules);
@@ -522,11 +537,12 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
                 OldPassword = "B1ge@rs*",
                 NewPassword = "yVHn6aRa",
                 ConfirmPassword = "yVHn6aRa",
-                History = new List<string> { "$sG96r#X", "3g9m&9W7" },
                 NewPasswordHash = "yVHn6aRa",
 
                 IsValid = false
             };
+
+            testPassword.SetHistory(new List<string> { "$sG96r#X", "3g9m&9W7" });
 
             validator = new ValidateSpecial();
             validator.Setup(validTestRules);
@@ -550,11 +566,12 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
                 OldPassword = "B1ge@rs*",
                 NewPassword = "yVHn6aRa",
                 ConfirmPassword = "yVHn6aRa",
-                History = new List<string> { "$sG96r#X", "3g9m&9W7" },
                 NewPasswordHash = "yVHn6aRa",
 
                 IsValid = true
             };
+
+            testPassword.SetHistory(new List<string> { "$sG96r#X", "3g9m&9W7" });
 
             validator = new ValidateSpecial();
             validator.Setup(validTestRules);
@@ -593,11 +610,12 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
                 OldPassword = "B1ge@rs*",
                 NewPassword = "yVHn6 R@",
                 ConfirmPassword = "yVHn6 R@",
-                History = new List<string> { "$sG96r#X", "3g9m&9W7" },
                 NewPasswordHash = "yVHn6 R@",
 
                 IsValid = false
             };
+
+            testPassword.SetHistory(new List<string> { "$sG96r#X", "3g9m&9W7" });
 
             validator = new ValidateWhiteSpace();
             validator.Setup(validTestRules);
@@ -621,11 +639,12 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
                 OldPassword = "B1ge@rs*",
                 NewPassword = "yVHn6 R@",
                 ConfirmPassword = "yVHn6 R@",
-                History = new List<string> { "$sG96r#X", "3g9m&9W7" },
                 NewPasswordHash = "yVHn6 R@",
 
                 IsValid = true
             };
+
+            testPassword.SetHistory(new List<string> { "$sG96r#X", "3g9m&9W7" });
 
             validator = new ValidateWhiteSpace();
             validator.Setup(validTestRules);
@@ -664,11 +683,12 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
                 OldPassword = "B1ge@rs*",
                 NewPassword = "B1ge@rs*",
                 ConfirmPassword = "B1ge@rs*",
-                History = new List<string> { "$sG96r#X", "3g9m&9W7" },
                 NewPasswordHash = "B1ge@rs*",
 
                 IsValid = false
             };
+
+            testPassword.SetHistory(new List<string> { "$sG96r#X", "3g9m&9W7" });
 
             validator = new ValidateHistory();
             validator.Setup(validTestRules);
@@ -692,11 +712,12 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
                 OldPassword = "B1ge@rs*",
                 NewPassword = "B1ge@rs*",
                 ConfirmPassword = "B1ge@rs*",
-                History = new List<string> { "$sG96r#X", "3g9m&9W7" },
                 NewPasswordHash = "B1ge@rs*",
 
                 IsValid = true
             };
+
+            testPassword.SetHistory(new List<string> { "$sG96r#X", "3g9m&9W7" });
 
             validator = new ValidateHistory();
             validator.Setup(validTestRules);
@@ -719,11 +740,12 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
                 OldPassword = "B1ge@rs*",
                 NewPassword = "3g9m&9W7",
                 ConfirmPassword = "3g9m&9W7",
-                History = new List<string> { "$sG96r#X", "3g9m&9W7" },
                 NewPasswordHash = "3g9m&9W7",
 
                 IsValid = true
             };
+
+            testPassword.SetHistory(new List<string> { "$sG96r#X", "3g9m&9W7" });
 
             validator = new ValidateHistory();
             validator.Setup(validTestRules);
@@ -762,11 +784,12 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
                 OldPassword = "B1ge@rs*",
                 NewPassword = "Test1234*",
                 ConfirmPassword = "Test1234*",
-                History = new List<string> { "$sG96r#X", "3g9m&9W7" },
                 NewPasswordHash = "Test1234*",
 
                 IsValid = false
             };
+
+            testPassword.SetHistory(new List<string> { "$sG96r#X", "3g9m&9W7" });
 
             validator = new ValidateBlacklist();
             validator.Setup(validTestRules);
@@ -790,11 +813,12 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
                 OldPassword = "B1ge@rs*",
                 NewPassword = "Test1234*",
                 ConfirmPassword = "Test1234*",
-                History = new List<string> { "$sG96r#X", "3g9m&9W7" },
                 NewPasswordHash = "Test1234*",
 
                 IsValid = true
             };
+
+            testPassword.SetHistory(new List<string> { "$sG96r#X", "3g9m&9W7" });
 
             validator = new ValidateBlacklist();
             validator.Setup(validTestRules);

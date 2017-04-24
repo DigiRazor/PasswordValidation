@@ -1,4 +1,6 @@
-﻿namespace DigiRazor.PasswordValidation.Validators
+﻿using System;
+
+namespace DigiRazor.PasswordValidation.Validators
 {
     public sealed class ValidateUserId : ValidateBase, IPasswordValidator
     {
@@ -6,6 +8,11 @@
 
         public IPassword Validate(IPassword value)
         {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+
             if (value.IsValid == false)
             {
                 return value;

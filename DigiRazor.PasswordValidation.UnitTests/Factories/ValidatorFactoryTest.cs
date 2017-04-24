@@ -24,7 +24,7 @@ namespace DigiRazor.PasswordValidation.UnitTests.Factories
                 MaxLength = 10,
                 SpecialChars = new[] { '!', '@', '#', '$', '%', '*', '+', '/' },
                 MinHistory = 3,
-                BlackList = new[] { "test", "password" }
+                Blacklist = new[] { "test", "password" }
             }; 
            
             factory = new ValidatorFactory();

@@ -1,3 +1,5 @@
+using System;
+
 namespace DigiRazor.PasswordValidation.Validators
 {
     public sealed class ValidateLength : ValidateBase, IPasswordValidator
@@ -10,12 +12,22 @@ namespace DigiRazor.PasswordValidation.Validators
 
         public override void Setup(PasswordRules ruleSet)
         {
+            if (ruleSet == null)
+            {
+                throw new ArgumentNullException(nameof(ruleSet));
+            }
+
             minLength = ruleSet.MinLength;
             maxLength = ruleSet.MaxLength;
         }
 
         public IPassword Validate(IPassword value)
         {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+
             if (value.IsValid == false)
             {
                 return value;
@@ -46,6 +58,11 @@ namespace DigiRazor.PasswordValidation.Validators
 
         public override string ToString(PasswordRules ruleSet)
         {
+            if (ruleSet == null)
+            {
+                throw new ArgumentNullException(nameof(ruleSet));
+            }
+
             return $"Password must be at least {ruleSet.MinLength} characters long.";
         }
     }

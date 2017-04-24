@@ -28,11 +28,12 @@ namespace DigiRazor.PasswordValidation.UnitTests
                 OldPassword = "B1ge@rs*",
                 NewPassword = "yVHn6?R@",
                 ConfirmPassword = "yVHn6?R@",
-                History = new List<string> { "$sG96r#X", "3g9m&9W7" },
                 NewPasswordHash = "yVHn6?R@",
 
                 IsValid = true
             };
+
+            validTestPassword.SetHistory(new List<string> { "$sG96r#X", "3g9m&9W7" });
 
             validTestRules = new PasswordRules
             {
@@ -41,7 +42,7 @@ namespace DigiRazor.PasswordValidation.UnitTests
                 MaxLength = 10,
                 SpecialChars = new[] { '!', '@', '#', '$', '%', '*', '+', '/' },
                 MinHistory = 3,
-                BlackList = new[] { "test", "password" }
+                Blacklist = new[] { "test", "password" }
             };
 
             factory = new ValidatorFactory();
@@ -101,12 +102,13 @@ namespace DigiRazor.PasswordValidation.UnitTests
                 UserId = "ABHW089",
                 OldPassword = "B1ge@rs*",
                 NewPassword = "yVHn6?R@",
-                ConfirmPassword = "yVHn6?R2",
-                History = new List<string> { "$sG96r#X", "3g9m&9W7" },
+                ConfirmPassword = "yVHn6?R2",                
                 NewPasswordHash = "yVHn6?R@",
 
                 IsValid = true
             };
+
+            testPassword.SetHistory(new List<string> { "$sG96r#X", "3g9m&9W7" });
 
             service.SetupRules(validTestRules);
 

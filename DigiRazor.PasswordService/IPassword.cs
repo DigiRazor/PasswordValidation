@@ -12,12 +12,14 @@ namespace DigiRazor.PasswordValidation
 
         string ConfirmPassword { get; set; }
 
-        List<string> History { get; set; }
+        IEnumerable<string> History { get; }
 
         string NewPasswordHash { get; set; }
 
         bool IsValid { get; set; }
 
         string Reason { get; set; }
+
+        void SetHistory(IEnumerable<string> history);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace DigiRazor.PasswordValidation.Validators
 {
@@ -10,11 +11,21 @@ namespace DigiRazor.PasswordValidation.Validators
 
         public override void Setup(PasswordRules ruleSet)
         {
+            if (ruleSet == null)
+            {
+                throw new ArgumentNullException(nameof(ruleSet));
+            }
+
             histCount = ruleSet.MinHistory;
         }
 
         public IPassword Validate(IPassword value)
         {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+
             if (value.IsValid == false)
             {
                 return value;
@@ -43,6 +54,11 @@ namespace DigiRazor.PasswordValidation.Validators
 
         public override string ToString(PasswordRules ruleSet)
         {
+            if (ruleSet == null)
+            {
+                throw new ArgumentNullException(nameof(ruleSet));
+            }
+
             return $"Password may not be any of your previous {ruleSet.MinHistory} passwords.";
         }
     }

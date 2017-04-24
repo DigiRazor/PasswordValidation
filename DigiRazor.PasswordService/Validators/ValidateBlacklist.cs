@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace DigiRazor.PasswordValidation.Validators
@@ -11,17 +13,27 @@ namespace DigiRazor.PasswordValidation.Validators
 
         public override void Setup(PasswordRules ruleSet)
         {
-            blackList = ruleSet.BlackList.ToList();
+            if (ruleSet == null)
+            {
+                throw new ArgumentNullException(nameof(ruleSet));
+            }
+
+            blackList = ruleSet.Blacklist.ToList();
         }
 
         public IPassword Validate(IPassword value)
         {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+            
             if (value.IsValid == false)
             {
                 return value;
             }
 
-            var match = blackList.SingleOrDefault(x => value.NewPassword.ToLower().Contains(x));
+            var match = blackList.SingleOrDefault(x => value.NewPassword.ToLower(CultureInfo.CurrentCulture).Contains(x));
 
             value.IsValid = string.IsNullOrEmpty(match);
 

@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using DigiRazor.PasswordValidation.Configuration;
 using DigiRazor.PasswordValidation.Configuration.Elements;
-using DigiRazor.PasswordValidation.Configuration.Sections;
 using DigiRazor.PasswordValidation.Factories;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -14,7 +13,7 @@ namespace DigiRazor.PasswordValidation.UnitTests.Factories
     public class PasswordRulesFactoryTests
     {
         private Mock<IValidatorsElement> validatorsElement;
-        private Mock<ILenghtsElement> lengthElement;
+        private Mock<ILengthsElement> lengthElement;
         private Mock<ISpecialCharsElement> specialCharsElement;
         private Mock<IMinCountsElement> minCountsElement;
 
@@ -32,7 +31,7 @@ namespace DigiRazor.PasswordValidation.UnitTests.Factories
             validatorsElement = new Mock<IValidatorsElement>();
             validatorsElement.SetupGet(p => p.Types).Returns("Standard");
 
-            lengthElement = new Mock<ILenghtsElement>();
+            lengthElement = new Mock<ILengthsElement>();
             lengthElement.SetupGet(p => p.Min).Returns(6);
             lengthElement.SetupGet(p => p.Max).Returns(8);
 

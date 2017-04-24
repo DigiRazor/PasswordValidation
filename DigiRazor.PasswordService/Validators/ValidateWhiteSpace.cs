@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
 
 namespace DigiRazor.PasswordValidation.Validators
 {
@@ -15,6 +16,11 @@ namespace DigiRazor.PasswordValidation.Validators
 
         public IPassword Validate(IPassword value)
         {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+
             if (value.IsValid == false)
             {
                 return value;

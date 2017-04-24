@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
 
 namespace DigiRazor.PasswordValidation.Validators
 {
@@ -12,6 +13,11 @@ namespace DigiRazor.PasswordValidation.Validators
 
         public override void Setup(PasswordRules ruleSet)
         {
+            if (ruleSet == null)
+            {
+                throw new ArgumentNullException(nameof(ruleSet));
+            }
+
             charSet = ruleSet.SpecialChars;
             var set = string.Concat(charSet);
             regex = new Regex($"(.*[{set}])", RegexOptions.Compiled);
@@ -19,6 +25,11 @@ namespace DigiRazor.PasswordValidation.Validators
 
         public IPassword Validate(IPassword value)
         {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+
             if (value.IsValid == false)
             {
                 return value;
@@ -40,6 +51,11 @@ namespace DigiRazor.PasswordValidation.Validators
 
         public override string ToString(PasswordRules ruleSet)
         {
+            if (ruleSet == null)
+            {
+                throw new ArgumentNullException(nameof(ruleSet));
+            }
+
             return $"Password must contain at least 1 of the following characters: {string.Concat(ruleSet.SpecialChars)}";
         }
     }

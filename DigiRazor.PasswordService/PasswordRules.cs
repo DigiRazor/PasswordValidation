@@ -41,7 +41,7 @@ namespace DigiRazor.PasswordValidation
         /// Blacklist of words not allowed
         /// </summary>
         /// <see cref="Validators"/>
-        public string[] BlackList { get; set; }
+        public string[] Blacklist { get; set; }
 
         public override string ToString()
         {
@@ -84,7 +84,7 @@ namespace DigiRazor.PasswordValidation
             var result = new PasswordRules
             {
                 Validators = ValidatorTypes.Basic,
-                BlackList = bl.ToArray()
+                Blacklist = bl.ToArray()
             };
 
             return result;

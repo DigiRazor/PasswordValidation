@@ -20,7 +20,7 @@ namespace DigiRazor.PasswordValidation.UnitTests
                 MaxLength = 10,
                 SpecialChars = new[] { '!', '@', '#', '$', '%', '*', '+', '/' },
                 MinHistory = 3,
-                BlackList = new[] { "test", "password" }
+                Blacklist = new[] { "test", "password" }
             };
         }
 
