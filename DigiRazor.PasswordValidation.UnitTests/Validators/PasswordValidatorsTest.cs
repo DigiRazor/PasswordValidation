@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using DigiRazor.PasswordValidation.Model;
 using DigiRazor.PasswordValidation.Validators;
@@ -10,7 +11,7 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
     
     [ExcludeFromCodeCoverage]
     [TestClass]
-    public class PasswordExtentionsTest
+    public class PasswordValidatorsTest
     {
         private IPassword validTestPassword;
 
@@ -65,7 +66,25 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
         [TestCategory("Unit")]
         [TestCategory("Unit-Validators")]
         [TestMethod]
-        public void Test_ValidateConfirmPassword_Ignore()
+        public void Test_ValidateConfirmPassword_Null_Parameter()
+        {
+            validator = new ValidateConfirmPassword();
+            validator.Setup(validTestRules);
+
+            var result = new Action(() =>
+            {
+                validator.Validate(null);
+
+            });
+
+            result.ShouldThrow<ArgumentNullException>();
+
+        }
+
+        [TestCategory("Unit")]
+        [TestCategory("Unit-Validators")]
+        [TestMethod]
+        public void Test_ValidateConfirmPassword_Not_In_RuleSet()
         {
             var testPassword = new Password
             {
@@ -137,7 +156,61 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
         [TestCategory("Unit")]
         [TestCategory("Unit-Validators")]
         [TestMethod]
-        public void Test_ValidateLength_Ignore()
+        public void Test_ValidateLength_Null_Parameter()
+        {
+            validator = new ValidateLength();
+            validator.Setup(validTestRules);
+
+            var result = new Action(() =>
+            {
+                validator.Validate(null);
+
+            });
+
+            result.ShouldThrow<ArgumentNullException>();
+
+        }
+
+        [TestCategory("Unit")]
+        [TestCategory("Unit-Validators")]
+        [TestMethod]
+        public void Test_ValidateLength_Setup_Null_Parameter()
+        {
+            validator = new ValidateLength();
+            
+
+            var result = new Action(() =>
+            {
+                validator.Setup(null);
+
+            });
+
+            result.ShouldThrow<ArgumentNullException>();
+
+        }
+
+        [TestCategory("Unit")]
+        [TestCategory("Unit-Validators")]
+        [TestMethod]
+        public void Test_ValidateLength_ToString_Null_Parameter()
+        {
+            validator = new ValidateLength();
+
+
+            var result = new Action(() =>
+            {
+                validator.ToString(null);
+
+            });
+
+            result.ShouldThrow<ArgumentNullException>();
+
+        }
+
+        [TestCategory("Unit")]
+        [TestCategory("Unit-Validators")]
+        [TestMethod]
+        public void Test_ValidateLength_Not_In_RuleSet()
         {
             var testPassword = new Password
             {
@@ -238,7 +311,25 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
         [TestCategory("Unit")]
         [TestCategory("Unit-Validators")]
         [TestMethod]
-        public void Test_ValidateUserId_Ignore()
+        public void Test_ValidateUserId_Null_Parameter()
+        {
+            validator = new ValidateUserId();
+            validator.Setup(validTestRules);
+
+            var result = new Action(() =>
+            {
+                validator.Validate(null);
+
+            });
+
+            result.ShouldThrow<ArgumentNullException>();
+
+        }
+
+        [TestCategory("Unit")]
+        [TestCategory("Unit-Validators")]
+        [TestMethod]
+        public void Test_ValidateUserId_Not_In_RuleSet()
         {
             var testPassword = new Password
             {
@@ -311,7 +402,25 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
         [TestCategory("Unit")]
         [TestCategory("Unit-Validators")]
         [TestMethod]
-        public void Test_ValidateUppercase_Ignore()
+        public void Test_ValidateUppercase_Null_Parameter()
+        {
+            validator = new ValidateUppercase();
+            validator.Setup(validTestRules);
+
+            var result = new Action(() =>
+            {
+                validator.Validate(null);
+
+            });
+
+            result.ShouldThrow<ArgumentNullException>();
+
+        }
+
+        [TestCategory("Unit")]
+        [TestCategory("Unit-Validators")]
+        [TestMethod]
+        public void Test_ValidateUppercase_Not_In_RuleSet()
         {
             var testPassword = new Password
             {
@@ -383,7 +492,25 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
         [TestCategory("Unit")]
         [TestCategory("Unit-Validators")]
         [TestMethod]
-        public void Test_ValidateLowercase_Ignore()
+        public void Test_ValidateLowercase_Null_Parameter()
+        {
+            validator = new ValidateLowercase();
+            validator.Setup(validTestRules);
+
+            var result = new Action(() =>
+            {
+                validator.Validate(null);
+
+            });
+
+            result.ShouldThrow<ArgumentNullException>();
+
+        }
+
+        [TestCategory("Unit")]
+        [TestCategory("Unit-Validators")]
+        [TestMethod]
+        public void Test_ValidateLowercase_Not_In_RuleSet()
         {
             var testPassword = new Password
             {
@@ -456,7 +583,25 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
         [TestCategory("Unit")]
         [TestCategory("Unit-Validators")]
         [TestMethod]
-        public void Test_ValidateNumeric_Ignore()
+        public void Test_ValidateNumeric_Null_Parameter()
+        {
+            validator = new ValidateNumeric();
+            validator.Setup(validTestRules);
+
+            var result = new Action(() =>
+            {
+                validator.Validate(null);
+
+            });
+
+            result.ShouldThrow<ArgumentNullException>();
+
+        }
+
+        [TestCategory("Unit")]
+        [TestCategory("Unit-Validators")]
+        [TestMethod]
+        public void Test_ValidateNumeric_Not_In_RuleSet()
         {
             var testPassword = new Password
             {
@@ -529,7 +674,59 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
         [TestCategory("Unit")]
         [TestCategory("Unit-Validators")]
         [TestMethod]
-        public void Test_ValidateSpecial_Ignore()
+        public void Test_ValidateSpecial_Null_Parameter()
+        {
+            validator = new ValidateSpecial();
+            validator.Setup(validTestRules);
+
+            var result = new Action(() =>
+            {
+                validator.Validate(null);
+
+            });
+
+            result.ShouldThrow<ArgumentNullException>();
+
+        }
+
+        [TestCategory("Unit")]
+        [TestCategory("Unit-Validators")]
+        [TestMethod]
+        public void Test_ValidateSpecial_Setup_Null_Parameter()
+        {
+            validator = new ValidateSpecial();
+
+            var result = new Action(() =>
+            {
+                validator.Setup(null);
+
+            });
+
+            result.ShouldThrow<ArgumentNullException>();
+
+        }
+
+        [TestCategory("Unit")]
+        [TestCategory("Unit-Validators")]
+        [TestMethod]
+        public void Test_ValidateSpecial_ToString_Null_Parameter()
+        {
+            validator = new ValidateSpecial();
+
+            var result = new Action(() =>
+            {
+                validator.ToString(null);
+
+            });
+
+            result.ShouldThrow<ArgumentNullException>();
+
+        }
+
+        [TestCategory("Unit")]
+        [TestCategory("Unit-Validators")]
+        [TestMethod]
+        public void Test_ValidateSpecial_Not_In_RuleSet()
         {
             var testPassword = new Password
             {
@@ -602,7 +799,25 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
         [TestCategory("Unit")]
         [TestCategory("Unit-Validators")]
         [TestMethod]
-        public void Test_ValidateWhiteSpace_Ignore()
+        public void Test_ValidateWhiteSpace_Null_Parameter()
+        {
+            validator = new ValidateWhiteSpace();
+            validator.Setup(validTestRules);
+
+            var result = new Action(() =>
+            {
+                validator.Validate(null);
+
+            });
+
+            result.ShouldThrow<ArgumentNullException>();
+
+        }
+
+        [TestCategory("Unit")]
+        [TestCategory("Unit-Validators")]
+        [TestMethod]
+        public void Test_ValidateWhiteSpace_Not_In_RuleSet()
         {
             var testPassword = new Password
             {
@@ -675,7 +890,59 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
         [TestCategory("Unit")]
         [TestCategory("Unit-Validators")]
         [TestMethod]
-        public void Test_ValidateHistory_Ignore()
+        public void Test_ValidateHistory_Null_Parameter()
+        {
+            validator = new ValidateHistory();
+            validator.Setup(validTestRules);
+
+            var result = new Action(() =>
+            {
+                validator.Validate(null);
+
+            });
+
+            result.ShouldThrow<ArgumentNullException>();
+
+        }
+
+        [TestCategory("Unit")]
+        [TestCategory("Unit-Validators")]
+        [TestMethod]
+        public void Test_ValidateHistory_Setup_Null_Parameter()
+        {
+            validator = new ValidateHistory();
+
+            var result = new Action(() =>
+            {
+                validator.Setup(null);
+
+            });
+
+            result.ShouldThrow<ArgumentNullException>();
+
+        }
+
+        [TestCategory("Unit")]
+        [TestCategory("Unit-Validators")]
+        [TestMethod]
+        public void Test_ValidateHistory_ToString_Null_Parameter()
+        {
+            validator = new ValidateHistory();
+
+            var result = new Action(() =>
+            {
+                validator.ToString(null);
+
+            });
+
+            result.ShouldThrow<ArgumentNullException>();
+
+        }
+
+        [TestCategory("Unit")]
+        [TestCategory("Unit-Validators")]
+        [TestMethod]
+        public void Test_ValidateHistory_Not_In_RuleSet()
         {
             var testPassword = new Password
             {
@@ -776,7 +1043,42 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
         [TestCategory("Unit")]
         [TestCategory("Unit-Validators")]
         [TestMethod]
-        public void Test_ValidateBlacklist_Ignore()
+        public void Test_ValidateBlacklist_Setup_Null_Parameter()
+        {
+            validator = new ValidateBlacklist();
+            validator.Setup(validTestRules);
+
+            var result = new Action(() =>
+            {
+                validator.Validate(null);
+
+            });
+
+            result.ShouldThrow<ArgumentNullException>();
+
+        }
+
+        [TestCategory("Unit")]
+        [TestCategory("Unit-Validators")]
+        [TestMethod]
+        public void Test_ValidateBlacklist_Null_Parameter()
+        {
+            validator = new ValidateBlacklist();
+            
+            var result = new Action(() =>
+            {
+                validator.Setup(null);
+
+            });
+
+            result.ShouldThrow<ArgumentNullException>();
+
+        }
+
+        [TestCategory("Unit")]
+        [TestCategory("Unit-Validators")]
+        [TestMethod]
+        public void Test_ValidateBlacklist_Not_In_RuleSet()
         {
             var testPassword = new Password
             {

@@ -105,3 +105,7 @@ namespace Sample
 }
 
 ```
+
+## Feedback
+
+* Feel free to add issues via github if you have any suggestions for improvement.

@@ -82,7 +82,22 @@ namespace DigiRazor.PasswordValidation.UnitTests
         [TestCategory("Unit")]
         [TestCategory("Unit-PasswordService")]
         [TestMethod]
-        public void Test_PasswordService_Pass()
+        public void Test_PasswordService_SetupRules_Null_Parameter()
+        {
+
+            var result = new Action(() =>
+            {
+                service.SetupRules(null);
+
+            });
+
+            result.ShouldThrow<ArgumentNullException>();
+        }
+
+        [TestCategory("Unit")]
+        [TestCategory("Unit-PasswordService")]
+        [TestMethod]
+        public void Test_PasswordService_Validate()
         {
             service.SetupRules(validTestRules);
 
@@ -90,6 +105,22 @@ namespace DigiRazor.PasswordValidation.UnitTests
 
             result.Should().NotBe(null);
             result.IsValid.Should().BeTrue();
+        }
+
+        [TestCategory("Unit")]
+        [TestCategory("Unit-PasswordService")]
+        [TestMethod]
+        public void Test_PasswordService_Validate_Null_Parameter()
+        {
+            service.SetupRules(validTestRules);
+
+            var result = new Action(() =>
+            {
+                service.Validate(null);
+
+            });
+
+            result.ShouldThrow<ArgumentNullException>();
         }
 
         [TestCategory("Unit")]
@@ -121,7 +152,7 @@ namespace DigiRazor.PasswordValidation.UnitTests
         [TestCategory("Unit")]
         [TestCategory("Unit-PasswordService")]
         [TestMethod]
-        public void Test_PasswordService_AddCustomValidator_Valid()
+        public void Test_PasswordService_AddCustomValidator()
         {
             service.SetupRules(validTestRules);
 
@@ -132,6 +163,22 @@ namespace DigiRazor.PasswordValidation.UnitTests
             });
 
             result.ShouldNotThrow<ArgumentException>();
+        }
+
+        [TestCategory("Unit")]
+        [TestCategory("Unit-PasswordService")]
+        [TestMethod]
+        public void Test_PasswordService_AddCustomValidator_Null_Parameter()
+        {
+            service.SetupRules(validTestRules);
+
+            var result = new Action(() =>
+            {
+                service.AddCustomValidator(null);
+
+            });
+
+            result.ShouldThrow<ArgumentNullException>();
         }
 
         [TestCategory("Unit")]
