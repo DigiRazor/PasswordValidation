@@ -37,7 +37,7 @@ namespace DigiRazor.PasswordValidation.Validators
 
         public override string ToString()
         {
-            return "Password may not contain a space.";
+            return Properties.Resources.ValidateWhiteSpace_PasswordMayNotContainASpace;
         }
     }
 }

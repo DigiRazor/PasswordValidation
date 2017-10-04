@@ -58,9 +58,9 @@ namespace DigiRazor.PasswordValidation.Validators
 
         private string FormatMessage(short minLength, short maxLength)
         {
-            return maxLength > 0 ?
-                $"Password must be between {minLength} and {maxLength} characters long."
-                : $"Password must be at least {minLength} characters long.";
+            return maxLength > 0
+                ? string.Format(Properties.Resources.ValidateLength_PasswordMustBeBetween0And1CharactersLong, minLength, maxLength)
+                : string.Format(Properties.Resources.ValidateLength_PasswordMustBeAtLeast0CharactersLong, minLength);
         }
 
         public override string ToString(PasswordRules ruleSet)

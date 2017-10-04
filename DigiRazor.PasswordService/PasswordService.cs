@@ -57,7 +57,7 @@ namespace DigiRazor.PasswordValidation
 
             if (validator.Type != ValidatorTypes.Custom)
             {
-                throw new ArgumentException(@"AddCustomValidator Only supports custom validator's, for standard validator's use SetupRules", nameof(validator));
+                throw new ArgumentException(Properties.Resources.PasswordService_AddCustomValidatorOnlySupportsCustomValidators, nameof(validator));
             }
             validationSet.Add(validator);
         }

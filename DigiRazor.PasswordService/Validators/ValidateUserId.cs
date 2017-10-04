@@ -28,7 +28,7 @@ namespace DigiRazor.PasswordValidation.Validators
 
         public override string ToString()
         {
-            return "Password may not contain the UserId/ User name.";
+            return Properties.Resources.ValidateUserId_PasswordMayNotContainTheUserIdUserName;
         }
     }
 }
