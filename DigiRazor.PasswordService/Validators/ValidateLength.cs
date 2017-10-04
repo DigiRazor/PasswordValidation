@@ -38,10 +38,10 @@ namespace DigiRazor.PasswordValidation.Validators
                 value.Reason = ToString();
                 return value;
             }
-            
+
             if (maxLength > 0)
             {
-                value.IsValid = (value.NewPassword.Length <= minLength);
+                value.IsValid = (value.NewPassword.Length <= maxLength);
                 if (value.IsValid == false)
                 {
                     value.Reason = ToString();
@@ -53,7 +53,14 @@ namespace DigiRazor.PasswordValidation.Validators
 
         public override string ToString()
         {
-            return $"Password must be at least {minLength} characters long.";
+            return FormatMessage(minLength, maxLength);
+        }
+
+        private string FormatMessage(short minLength, short maxLength)
+        {
+            return maxLength > 0 ?
+                $"Password must be between {minLength} and {maxLength} characters long."
+                : $"Password must be at least {minLength} characters long.";
         }
 
         public override string ToString(PasswordRules ruleSet)
@@ -63,7 +70,7 @@ namespace DigiRazor.PasswordValidation.Validators
                 throw new ArgumentNullException(nameof(ruleSet));
             }
 
-            return $"Password must be at least {ruleSet.MinLength} characters long.";
+            return FormatMessage(ruleSet.MinLength, ruleSet.MaxLength);
         }
     }
 }

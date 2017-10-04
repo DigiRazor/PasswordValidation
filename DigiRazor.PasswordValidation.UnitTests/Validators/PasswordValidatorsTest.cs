@@ -295,6 +295,34 @@ namespace DigiRazor.PasswordValidation.UnitTests.Validators
         [TestCategory("Unit")]
         [TestCategory("Unit-Validators")]
         [TestMethod]
+        public void Test_ValidateLength_Not_Fail_On_Max()
+        {
+            var testPassword = new Password
+            {
+                UserId = "ABHW089",
+                OldPassword = "B1ge@rs*",
+                NewPassword = "yVHn678901",
+                ConfirmPassword = "yVHn678901",
+                NewPasswordHash = "yVHn678901",
+
+                IsValid = true
+            };
+
+            testPassword.SetHistory(new List<string> { "$sG96r#X", "3g9m&9W7" });
+
+            validator = new ValidateLength();
+            validator.Setup(validTestRules);
+
+            var result = validator.Validate(testPassword);
+
+            result.Should().NotBe(null);
+            result.IsValid.Should().BeTrue();
+
+        }
+
+        [TestCategory("Unit")]
+        [TestCategory("Unit-Validators")]
+        [TestMethod]
         public void Test_ValidateUserId_Success()
         {
             validator = new ValidateUserId();
