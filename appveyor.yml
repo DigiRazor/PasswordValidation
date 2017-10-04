@@ -54,6 +54,9 @@ platform: Any CPU
 configuration:
   - Release
 
+before_build:
+  - nuget restore
+
 #---------------------------------#
 #       tests configuration       #
 #---------------------------------#
