@@ -46,7 +46,7 @@ namespace DigiRazor.PasswordValidation.Validators
 
         public override string ToString()
         {
-            return "Password contains black listed words.";
+            return Properties.Resources.ValidateBlacklist_PasswordContainsBlackListedWords;
         }
     }
 }

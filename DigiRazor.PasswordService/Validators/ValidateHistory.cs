@@ -38,7 +38,7 @@ namespace DigiRazor.PasswordValidation.Validators
                 return value;
             }
 
-            value.IsValid = !value.History.Take(histCount-1).Contains(value.NewPasswordHash);
+            value.IsValid = !value.History.Take(histCount - 1).Contains(value.NewPasswordHash);
 
             if (value.IsValid == false)
             {
@@ -49,7 +49,7 @@ namespace DigiRazor.PasswordValidation.Validators
 
         public override string ToString()
         {
-            return $"Password may not be any of your previous {histCount} passwords.";
+            return string.Format(Properties.Resources.ValidateHistory_PasswordMayNotBeAnyOfYourPrevious0Passwords, histCount);
         }
 
         public override string ToString(PasswordRules ruleSet)
@@ -59,7 +59,7 @@ namespace DigiRazor.PasswordValidation.Validators
                 throw new ArgumentNullException(nameof(ruleSet));
             }
 
-            return $"Password may not be any of your previous {ruleSet.MinHistory} passwords.";
+            return string.Format(Properties.Resources.ValidateHistory_PasswordMayNotBeAnyOfYourPrevious0Passwords, ruleSet.MinHistory);
         }
     }
 }

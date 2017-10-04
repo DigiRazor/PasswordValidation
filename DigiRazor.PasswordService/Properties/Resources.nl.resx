@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ValidateWhiteSpace_PasswordMayNotContainASpace" xml:space="preserve">
+    <value>Paswoord mag geen spatie bevatten.</value>
+  </data>
+  <data name="ValidateUserId_PasswordMayNotContainTheUserIdUserName" xml:space="preserve">
+    <value>Paswoord mag de UserId/gebruikersnaam niet bevatten.</value>
+  </data>
+  <data name="ValidateUppercase_PasswordMustContainAtLeast1UppercaseCharacter" xml:space="preserve">
+    <value>Paswoord moet ten minste 1 hoofdletter bevatten.</value>
+  </data>
+  <data name="ValidateSpecial_PasswordMustContainAtLeast1OfTheFollowingCharacters" xml:space="preserve">
+    <value>Paswoord moet tenminste 1 van de volgende bevatten: {0}</value>
+  </data>
+  <data name="ValidateNumeric_PasswordMustContainAtLeast1NumericCharacter" xml:space="preserve">
+    <value>Paswoord moet te minste 1 cijfer bevatten.</value>
+  </data>
+  <data name="ValidateLowercase_PasswordMustContainAtLeast1LowercaseCharacter" xml:space="preserve">
+    <value>Paswoord moet ten minste 1 kleine letter bevatten.</value>
+  </data>
+  <data name="ValidateLength_PasswordMustBeBetween0And1CharactersLong" xml:space="preserve">
+    <value>Paswoord moet tussen {0} en {1} tekens lang zijn.</value>
+  </data>
+  <data name="ValidateLength_PasswordMustBeAtLeast0CharactersLong" xml:space="preserve">
+    <value>Paswoord moet ten minste {0} tekens lang zijn.</value>
+  </data>
+  <data name="ValidateHistory_PasswordMayNotBeAnyOfYourPrevious0Passwords" xml:space="preserve">
+    <value>Paswoord mag niet gelijk zijn aan een van de vorige {0} paswoorden.</value>
+  </data>
+  <data name="ValidateConfirmPassword_NewPasswordConfirmPasswordMustMatch" xml:space="preserve">
+    <value>Nieuw paswoord en paswoord bevestiging moeten overeen komen.</value>
+  </data>
+  <data name="ValidateBlacklist_PasswordContainsBlackListedWords" xml:space="preserve">
+    <value>Paswoord bevat niet toegestane woorden.</value>
+  </data>
+  <data name="PasswordService_AddCustomValidatorOnlySupportsCustomValidators" xml:space="preserve">
+    <value>AddCustomValidator ondersteunt enkel custom validators, voor standaard validators gebruik SetupRules</value>
+  </data>
+</root>

@@ -29,7 +29,7 @@ namespace DigiRazor.PasswordValidation.Validators
 
         public override string ToString()
         {
-            return "New Password & Confirm Password must match.";
+            return Properties.Resources.ValidateConfirmPassword_NewPasswordConfirmPasswordMustMatch;
         }
     }
 }

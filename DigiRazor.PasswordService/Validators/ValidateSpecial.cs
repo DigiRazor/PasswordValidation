@@ -46,7 +46,7 @@ namespace DigiRazor.PasswordValidation.Validators
 
         public override string ToString()
         {
-            return $"Password must contain at least 1 of the following characters: {string.Concat(charSet)}";
+            return string.Format(Properties.Resources.ValidateSpecial_PasswordMustContainAtLeast1OfTheFollowingCharacters, string.Concat(charSet));
         }
 
         public override string ToString(PasswordRules ruleSet)
@@ -56,7 +56,7 @@ namespace DigiRazor.PasswordValidation.Validators
                 throw new ArgumentNullException(nameof(ruleSet));
             }
 
-            return $"Password must contain at least 1 of the following characters: {string.Concat(ruleSet.SpecialChars)}";
+            return string.Format(Properties.Resources.ValidateSpecial_PasswordMustContainAtLeast1OfTheFollowingCharacters, string.Concat(ruleSet.SpecialChars));
         }
     }
 }
