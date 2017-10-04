@@ -28,6 +28,12 @@ assembly_info:
   assembly_file_version: "{version}"
   assembly_informational_version: "{version}"	
 
+image: Visual Studio 2017
+
+install: 
+- cmd: curl -O https://download.microsoft.com/download/0/F/D/0FD852A4-7EA1-4E2A-983A-0484AC19B92C/dotnet-sdk-2.0.0-win-x64.exe 
+- cmd: dotnet-sdk-2.0.0-win-x64.exe /install /quiet /norestart /log install.log    
+
 # Do not build on tags (GitHub only)
 skip_tags: false
 
@@ -47,7 +53,6 @@ platform: Any CPU
 # to add several configurations to build matrix:
 configuration:
   - Release
-  
 
 #---------------------------------#
 #       tests configuration       #
