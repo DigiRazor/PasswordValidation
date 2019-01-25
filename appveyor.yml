@@ -13,7 +13,7 @@ environment:
     secure: s/cX2qtXI5mnjXc2KJTxcfa6ppLiR+0rD55eiI3Z3SYmS5ZzqWJiXGajDAn2vuo6
     
 # version format
-version: 0.1.1.{build}
+version: 1.0.0.{build}
 
 # branches to build
 branches:

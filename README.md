@@ -109,3 +109,11 @@ namespace Sample
 ## Feedback
 
 * Feel free to add issues via github if you have any suggestions for improvement.
+
+## Updates
+
+Appologies I've been slow with updates, had some hectic commitments.
+
+## Change History
+
+* 1.0.0 Translations & NET Standard - Done by [Nick Verschueren](https://github.com/nickverschueren)
