@@ -11,10 +11,8 @@ namespace DigiRazor.PasswordValidation.Configuration.Elements
         {
             get
             {
-                short result;
-
                 var value = this["min"] as string;
-                if (short.TryParse(value, out result) == false)
+                if (short.TryParse(value, out var result) == false)
                 {
                     result = 0;
                 }
@@ -27,10 +25,8 @@ namespace DigiRazor.PasswordValidation.Configuration.Elements
         {
             get
             {
-                short result;
-
                 var value = this["max"] as string;
-                if (short.TryParse(value, out result) == false)
+                if (short.TryParse(value, out var result) == false)
                 {
                     result = 0;
                 }
